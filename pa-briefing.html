@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pa / Afrigter briefing — Wallie_911_Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #061a0f;
+      --panel: #12301f;
+      --line: #2a5a3c;
+      --text: #f4f7f2;
+      --muted: #9bb5a4;
+      --gold: #c8a84b;
+      --green: #007a4d;
+      --danger: #e85d4c;
+      --font: "DM Sans", system-ui, sans-serif;
+      --display: "Libre Baskerville", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(ellipse 70% 40% at 10% 0%, rgba(0,122,77,.35), transparent),
+        radial-gradient(ellipse 50% 35% at 100% 0%, rgba(200,168,75,.15), transparent),
+        #061a0f;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+    header {
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      background: linear-gradient(120deg, rgba(0,122,77,.45), rgba(6,26,15,.95));
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow {
+      margin: 0 0 .4rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin: 0 0 .5rem;
+    }
+    header p { margin: 0; color: #d5e6db; }
+    .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .85rem; }
+    .chip {
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .3rem .55rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.25);
+      color: var(--gold);
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: .9rem;
+    }
+    h2 {
+      margin: 0 0 .65rem;
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+    h3 { margin: 1rem 0 .4rem; font-size: .95rem; }
+    ul, ol { margin: 0; padding-left: 1.2rem; }
+    li { margin: .35rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    th, td {
+      text-align: left;
+      padding: .55rem .4rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; font-size: .8rem; }
+    .rooi { color: #ff8f7a; font-weight: 700; }
+    .ok { color: #6fd48a; }
+    .danger { color: var(--danger); }
+    code {
+      background: #0a2215;
+      padding: .1rem .35rem;
+      border-radius: 4px;
+      color: var(--gold);
+      font-size: .88em;
+      word-break: break-all;
+    }
+    .callout {
+      border-left: 3px solid var(--gold);
+      padding: .65rem .85rem;
+      background: rgba(200,168,75,.08);
+      border-radius: 0 8px 8px 0;
+      margin: .75rem 0 0;
+      font-size: .92rem;
+    }
+    .callout.danger-edge { border-left-color: var(--danger); }
+    .grid2 {
+      display: grid;
+      gap: .75rem;
+    }
+    @media (min-width: 640px) {
+      .grid2 { grid-template-columns: 1fr 1fr; }
+    }
+    .mini {
+      background: #0a2215;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: .75rem .85rem;
+      font-size: .9rem;
+    }
+    .mini strong { display: block; margin-bottom: .25rem; color: var(--gold); }
+    footer {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+    a { color: var(--gold); }
+    .print-hint { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
+    .stadium {
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem 1.25rem;
+      margin-bottom: 1.25rem;
+      background:
+        linear-gradient(135deg, rgba(0,122,77,.5), rgba(6,26,15,.95)),
+        repeating-linear-gradient(-12deg, transparent, transparent 8px, rgba(200,168,75,.04) 8px, rgba(200,168,75,.04) 16px);
+    }
+    .stadium h2 { margin-bottom: .35rem; }
+    .stadium .sub { margin: 0 0 .85rem; color: #d5e6db; font-size: .92rem; }
+    .digits {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: .3rem;
+    }
+    .digit {
+      min-width: 3.4rem;
+      text-align: center;
+      background: rgba(0,0,0,.35);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: .5rem .4rem .35rem;
+    }
+    .digit b {
+      display: block;
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      color: var(--gold);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .digit small {
+      display: block;
+      margin-top: .2rem;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .sep {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      color: #9a7c2e;
+      padding-bottom: 1rem;
+    }
+    .cd-status { margin: .75rem 0 0; color: #d5e6db; font-size: .92rem; }
+    .wa-box {
+      white-space: pre-wrap;
+      font-size: .9rem;
+      background: #0a2215;
+      padding: .85rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      header, section, .stadium { border-color: #ccc; background: #fff; }
+      .eyebrow, h2, .chip, code, a, .digit b { color: #006644; }
+      header p, footer, .sub, .cd-status { color: #333; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Pa · Oorsiener · Afrigter-kantoor</p>
+      <h1>Wallie_911_Pro — gameplan</h1>
+      <p>
+        Matriek-Wêreldbeker. Wallie is <strong>#15</strong>. Eindeksamen begin <strong>Di 13 Oktober</strong>; die
+        eerste egte vraestel is <strong>RTT/CAT praktiese, Di 13 Oktober 2026 · 09:00</strong>.
+        Hy sit in die buitegebou; jy monitor op afstand — nie stap toe nie.
+      </p>
+      <div class="chips">
+        <span class="chip">Trui #15</span>
+        <span class="chip">13 Okt kickoff (CAT)</span>
+        <span class="chip">Pa-PIN 9110</span>
+        <span class="chip">60% / Wisk 80% / Engels 70%</span>
+        <span class="chip">WhatsApp: verwyder</span>
+      </div>
+      <p class="print-hint">Oop in Chrome/Edge · Ctrl+P om te druk</p>
+    </header>
+
+    <div class="stadium" aria-live="polite">
+      <p class="eyebrow">Lewendige stadium-klok</p>
+      <h2>Aftelling tot die eerste vraestel</h2>
+      <p class="sub">Wêreldbeker-metafoor = Matriek eindeksamen · eerste vraestel 13 Okt 2026 09:00</p>
+      <div class="digits">
+        <div class="digit"><b id="cd-days">—</b><small>dae</small></div>
+        <span class="sep" aria-hidden="true">:</span>
+        <div class="digit"><b id="cd-hours">—</b><small>uur</small></div>
+        <span class="sep" aria-hidden="true">:</span>
+        <div class="digit"><b id="cd-mins">—</b><small>min</small></div>
+        <span class="sep" aria-hidden="true">:</span>
+        <div class="digit"><b id="cd-secs">—</b><small>sek</small></div>
+      </div>
+      <p class="cd-status" id="cd-status">Laai…</p>
+    </div>
+
+    <section>
+      <h2>1. Gameplan (wat ons doen)</h2>
+      <ol>
+        <li>
+          <strong>Wallie oop die HTTPS-app</strong> (geen Node, geen zip):
+          <br /><code>https://pamoja-academy.github.io/Wallie_911_Pro/</code>
+        </li>
+        <li>Merk waarneming-kassie → <strong>Missie</strong> → Begin sessie (kamera toelaat).</li>
+        <li>
+          <strong>Jy</strong> subscribe ntfy-topic <code>wallie911-pa-15sos-hanno</code>
+          + bookmark
+          <a href="pa-afstand.html">pa-afstand.html</a>
+          vir lewendige status.
+        </li>
+        <li>Hard-proctor: tab fokusus + kamera. 3× wegkyk → slot tot PIN <code>9110</code>.</li>
+        <li>Ná blokke: sy survey + jou Pa-survey → Verbeter-oortjie (MISMATCH = jou oë wen).</li>
+        <li>Elke dag tot 13 Okt: produksie + memo, nie “ek het gelees” nie.</li>
+      </ol>
+      <div class="callout danger-edge">
+        <strong>Moenie:</strong> afgekapte GitHub zip-URLs, <code>file://</code>, of OneDrive as sy pad.
+        Hy het Node nie — Pages is die pad.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Waarom die aftelling</h2>
+      <p>
+        Narratief: Rassie se SOS — vyf #15’s “siek”. Wallie speel homself in die span
+        deur die matric-Wêreldbeker te wen. Die <strong>openingswedstryd</strong> is
+        die eerste egte vraestel: <strong>RTT/CAT praktiese, 13 Oktober</strong>. Die klok hierbo
+        (en op sy Missie-skerm) hou die druk sigbaar — soos ’n stadium-klok voor kickoff.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Teikens &amp; rooi vakke</h2>
+      <ul>
+        <li>Alle vakke ≥ <strong>60%</strong></li>
+        <li>Wiskundige Geletterdheid ≥ <strong>80%</strong></li>
+        <li>Engels ≥ <strong>70%</strong></li>
+      </ul>
+      <h3>Prioriteit (prelim)</h3>
+      <ul>
+        <li class="rooi">Gasvryheid 27% — begrip, nie inkram</li>
+        <li class="rooi">Afrikaans HT 39% — moenie vermy</li>
+        <li class="rooi">RTT/CAT 37% — werk insit</li>
+        <li>Engels lit · Toerisme · Wisk daagliks</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Jou gereedskap</h2>
+      <div class="grid2">
+        <div class="mini">
+          <strong>Cockpit (Wallie)</strong>
+          <a href="https://pamoja-academy.github.io/Wallie_911_Pro/" target="_blank" rel="noopener">Pages-app</a>
+          · Missie, Sessie, Vakke, Foutbank, Probleem
+        </div>
+        <div class="mini">
+          <strong>Pa afstand</strong>
+          <a href="pa-afstand.html">pa-afstand.html</a>
+          + ntfy <code>wallie911-pa-15sos-hanno</code>
+        </div>
+        <div class="mini">
+          <strong>PIN</strong>
+          Verstek <code>9110</code> — ontsluit bank/slot
+        </div>
+        <div class="mini">
+          <strong>Kontak Wallie</strong>
+          WA (verwyder) ·
+          <code>(e-pos verwyder)</code>
+        </div>
+      </div>
+      <div class="callout">
+        Reël: <span class="danger">nie net sy woord as wet nie</span>.
+        As produksie “besig” lyk — eis foutlog / skryfwerk te sien.
+      </div>
+    </section>
+
+    <section>
+      <h2>5. WhatsApp — plak 1:1</h2>
+      <div class="wa-box" id="wa-paste">Wallie —
+
+Die zip-skakel was stukkend. Moenie Node of zip nodig he nie.
+
+1. Maak Edge/Chrome oop
+2. Plak HIERDIE HELE skakel:
+https://pamoja-academy.github.io/Wallie_911_Pro/
+3. Merk die waarneming-kassie
+4. Missie → Begin (kamera toelaat)
+5. Slot-PIN as nodig: 9110
+
+Kyk die Wêreldbeker-klok bo-aan — die eerste vraestel is Di 13 Oktober (RTT/CAT praktiese).
+Stuur Pa ’n skermkiekie as die bladsy oop is.
+— Pa</div>
+    </section>
+
+    <section>
+      <h2>6. Design-tool (Penpot — nie Figma MCP)</h2>
+      <p>
+        Figma Starter+View MCP-kwota is vol. Ons pad: <strong>Penpot Cloud + Cursor MCP</strong>.
+      </p>
+      <ol>
+        <li>Login: <a href="https://design.penpot.app" target="_blank" rel="noopener">design.penpot.app</a></li>
+        <li>Lêer: <code>Wallie_911_Pro — Design</code></li>
+        <li>Volg die klik-lys: <a href="docs/PENPOT-SETUP.md">docs/PENPOT-SETUP.md</a></li>
+        <li>Plugin moet <strong>Connected</strong> bly terwyl die agent werk</li>
+      </ol>
+      <div class="callout">
+        Moenie MCP keys in git of WhatsApp sit nie. Ou Figma-capture is slegs verwysing.
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Vinnige noodkontrole</h2>
+      <ol>
+        <li>“Not Found”? → hy het ’n afgekapte URL; stuur weer die Pages-skakel heeltemal</li>
+        <li>Kamera weier? → Edge/Chrome HTTPS (nie file://)</li>
+        <li>Sessie slot? → PIN <code>9110</code></li>
+        <li>Jy sien niks afstand? → ntfy subscribe + pa-afstand oop</li>
+        <li>Dev-kopie: <code>C:\Users\User\Projects\Wallie_911_Pro</code></li>
+      </ol>
+    </section>
+
+    <footer>
+      Wallie_911_Pro · Pa briefing · bygewerk 27 Sep 2026<br />
+      <a href="index.html">← Cockpit</a>
+      ·
+      <a href="pa-afstand.html">Pa afstand</a>
+      ·
+      <a href="https://pamoja-academy.github.io/Wallie_911_Pro/pa-briefing.html">Live briefing</a>
+      ·
+      <a href="principal-briefing.html">Hoof-briefing (Afrikaans)</a>
+      ·
+      <a href="principal-briefing-en.html">English</a>
+    </footer>
+  </div>
+
+  <script>
+    const KICKOFF = new Date("2026-10-13T09:00:00"); /* eerste egte vraestel: RTT/CAT praktiese */
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function tick() {
+      let ms = KICKOFF - new Date();
+      const past = ms <= 0;
+      if (past) ms = 0;
+      const sec = Math.floor(ms / 1000);
+      const days = Math.floor(sec / 86400);
+      const hours = Math.floor((sec % 86400) / 3600);
+      const minutes = Math.floor((sec % 3600) / 60);
+      const seconds = sec % 60;
+      document.getElementById("cd-days").textContent = pad(days);
+      document.getElementById("cd-hours").textContent = pad(hours);
+      document.getElementById("cd-mins").textContent = pad(minutes);
+      document.getElementById("cd-secs").textContent = pad(seconds);
+      document.getElementById("cd-status").textContent = past
+        ? "Kickoff — die eerste vraestel is hier. Speel."
+        : days + " dae tot die eerste vraestel: RTT/CAT praktiese, Di 13 Okt 09:00";
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>

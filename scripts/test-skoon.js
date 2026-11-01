@@ -1,0 +1,43 @@
+// Dieselfde stappe as `npm test`, maar skermkiekies gaan na 'n gitignored gids,
+// sodat die opgespoorde PNG's in test-artifacts/ nie herskryf word nie.
+const path = require("path");
+const { spawnSync } = require("child_process");
+
+const root = path.join(__dirname, "..");
+const env = Object.assign({}, process.env, {
+  WALLIE_ARTIFACTS_DIR: path.join(root, "test-artifacts", "playwright-output", "skermkiekies"),
+});
+
+const steps = [
+  "node scripts/proctor-test.js",
+  "node scripts/smoke-parse.js",
+  "node tests/sql-migration.test.js",
+  "npx playwright test",
+  "node tests/vraebank-store.test.js",
+  "node tests/vraebank.test.js",
+  "node tests/preview-guard.test.js",
+  "node tests/dbe-vraestelle.test.js",
+  "node tests/ondersteuning.test.js",
+  "node tests/fout-rag.test.js",
+  "node tests/fout-vanger.test.js",
+  "node scripts/bou-fout-rag.js --kyk",
+  "node tests/vraebank-v3.test.js",
+  "node tests/weergawe.test.js",
+  "node tests/eksamenmodus.test.js",
+  "node tests/agtergrond.test.js",
+  "node tests/vroeg-klaar.test.js",
+  "node tests/eksamenvlak-hek.test.js",
+  "node tests/plan-v5.test.js",
+  "node tests/plan-nov.test.js",
+  "node tests/roete.test.js",
+  "node tests/vraelys.test.js",
+  "node tests/toerisme-mcq.test.js",
+  "node scripts/eksamenvlak-hek.js",
+];
+
+for (const cmd of steps) {
+  console.log(`\n>>> ${cmd}`);
+  const r = spawnSync(cmd, { cwd: root, env, shell: true, stdio: "inherit" });
+  const code = r.status === null ? 1 : r.status;
+  if (code !== 0) process.exit(code);
+}

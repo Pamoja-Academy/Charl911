@@ -1,0 +1,22 @@
+Wallie_911_Pro-VIR-SY-LAPTOP.zip
+scripts/_att_b64.txt
+scripts/_b64_one_line.txt
+scripts/_zip_b64.txt
+WHATSAPP-PLAK-HIER.txt
+dist/
+
+# Toetse
+node_modules/
+test-artifacts/playwright-output/
+test-artifacts/playwright-results.json
+gate_report.json
+scripts/qa/__pycache__/
+
+# DBE-vraestelle (kopiereg): nooit in git nie
+.dbe-cache/
+DBE-cache/
+
+# Persoonlike boodskappe aan Wallie: die repo word van master op GitHub Pages bedien, dus is enigiets
+# hier publiek afhaalbaar. WhatsApp-konsepte bly plaaslik (28 Okt, QC-bevinding R8).
+WHATSAPP-WALLIE-*.txt
+playwright.local*.config.js
